@@ -10,7 +10,7 @@ TEST(MatrixTemplate, CostruttoreDefault){
 
     MatrixTemplate<double> MatA(2, 3);
     ASSERT_EQ(2, MatA.getRow());
-    ASSERT_EQ(4, MatA.getColumn());
+    ASSERT_EQ(3, MatA.getColumn());
     ASSERT_EQ(0, MatA.getValue(2, 1));
     MatrixTemplate<double> MatB(1, 6);
     ASSERT_EQ(1, MatB.getRow());
