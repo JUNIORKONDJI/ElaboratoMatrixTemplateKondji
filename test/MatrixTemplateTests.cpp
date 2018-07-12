@@ -188,4 +188,53 @@ TEST(MatrixTemplate, SelezioneColonna) {
 
 }
 
+TEST(MatrixTemplate, SettareValore) {
 
+    MatrixTemplate<double> MatA(3, 3);
+    MatA.setValue(1, 1, 6);
+    MatA.setValue(1, 2, 7);
+    MatA.setValue(1, 3, 1);
+    MatA.setValue(2, 1, 4);
+    MatA.setValue(2, 2, 5);
+    MatA.setValue(2, 3, 0);
+    MatA.setValue(3, 1, 2);
+    MatA.setValue(3, 2, 9);
+    MatA.setValue(3, 3, 2);
+    ASSERT_ANY_THROW(MatA.setValue(3, 5, 9));
+
+}
+
+TEST(MatrixTemplate, PrendereValore) {
+
+    MatrixTemplate<short int> MatA(3, 3);
+    MatA.setValue(1, 1, 2);
+    MatA.setValue(1, 2, 8);
+    MatA.setValue(1, 3, 3);
+    MatA.setValue(2, 1, 9);
+    MatA.setValue(2, 2, 2);
+    MatA.setValue(2, 3, 6);
+    MatA.setValue(3, 1, 1);
+    MatA.setValue(3, 2, 5);
+    MatA.setValue(3, 3, 0);
+    ASSERT_EQ(6, MatA.getValue(2, 3));
+    ASSERT_EQ(0, MatA.getValue(3, 3));
+    ASSERT_ANY_THROW(MatA.getValue(5, 3));
+
+}
+
+TEST(MatrixTemplate,Transpose) {
+    MatrixTemplate<double> MatA(2, 3);
+    MatA.setValue(1, 1, 7);
+    MatA.setValue(1, 2, 0);
+    MatA.setValue(1, 3, 4);
+    MatA.setValue(2, 1, 1);
+    MatA.setValue(2, 2, 5);
+    MatA.setValue(2, 3, 3);
+    MatrixTemplate<double> MatB(MatA.transpose());
+    ASSERT_EQ(3, MatB.getRow());
+    ASSERT_EQ(2, MatB.getColumn());
+    ASSERT_EQ(3, MatB.getValue(3, 2));
+    ASSERT_EQ(0, MatB.getValue(2, 1));
+    ASSERT_EQ(5, MatB.getValue(2, 2));
+
+}
