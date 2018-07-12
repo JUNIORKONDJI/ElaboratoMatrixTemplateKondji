@@ -115,3 +115,77 @@ TEST(MatrixTemplate, OperatoreUguale_Diverso) {
     ASSERT_FALSE(MatA== MatB);
 
 }
+
+TEST(MatrixTemplate, OperatoreMoltiplicazione) {
+
+    MatrixTemplate<int> A(2, 3);
+    A.setValue(1, 1, 2);
+    A.setValue(1, 2, 3);
+    A.setValue(1, 3, 5);
+    A.setValue(2, 1, 4);
+    A.setValue(2, 2, 7);
+    A.setValue(2, 3, 1);
+    MatrixTemplate<int> B(2, 3);
+    ASSERT_THROW(A* B, std::logic_error);
+    MatrixTemplate<int> C(3, 2);
+    C.setValue(1, 1, 1);
+    C.setValue(1, 2, 5);
+    C.setValue(2, 1, 6);
+    C.setValue(2, 2, 9);
+    C.setValue(3, 1, 2);
+    C.setValue(3, 2, 8);
+    MatrixTemplate<int> D(2, 2);
+    D= A* C;
+    ASSERT_EQ(D.getValue(1, 1), 30);
+    ASSERT_EQ(D.getValue(1, 2), 77);
+    ASSERT_EQ(D.getValue(2, 1), 48);
+    ASSERT_EQ(D.getValue(2, 2), 91);
+    C= C* 4;
+    ASSERT_EQ(C.getValue(1, 1), 4);
+    ASSERT_EQ(C.getValue(1, 2), 20);
+    ASSERT_EQ(C.getValue(2, 1), 24);
+    ASSERT_EQ(C.getValue(3, 2), 32);
+
+}
+
+TEST(MatrixTemplate, SelezioneRiga) {
+
+    MatrixTemplate<long int> MatA(3, 3);
+    MatA.setValue(1, 1, 5);
+    MatA.setValue(1, 2, 2);
+    MatA.setValue(1, 3, 7);
+    MatA.setValue(2, 1, 4);
+    MatA.setValue(2, 2, 1);
+    MatA.setValue(2, 3, 8);
+    MatA.setValue(3, 1, 2);
+    MatA.setValue(3, 2, 0);
+    MatA.setValue(3, 3, 3);
+    MatrixTemplate<long int> MatB(MatA.selectRow(2));
+    ASSERT_EQ(4, MatB.getValue(1, 1));
+    ASSERT_EQ(1, MatB.getValue(1, 2));
+    ASSERT_EQ(8, MatB.getValue(1, 3));
+    ASSERT_ANY_THROW(MatA.selectRow(7));
+
+}
+
+TEST(MatrixTemplate, SelezioneColonna) {
+
+    MatrixTemplate<int> MatA(3, 3);
+    MatA.setValue(1, 1, 2);
+    MatA.setValue(1, 2, 4);
+    MatA.setValue(1, 3, 8);
+    MatA.setValue(2, 1, 0);
+    MatA.setValue(2, 2, 4);
+    MatA.setValue(2, 3, 8);
+    MatA.setValue(3, 1, 0);
+    MatA.setValue(3, 2, 1);
+    MatA.setValue(3, 3, 5);
+    MatrixTemplate<int> MatB(MatA.selectColumn(3));
+    ASSERT_EQ(8, MatB.getValue(1, 1));
+    ASSERT_EQ(8, MatB.getValue(2, 1));
+    ASSERT_EQ(5, MatB.getValue(3, 1));
+    ASSERT_ANY_THROW(MatA.selectColumn(7));
+
+}
+
+
