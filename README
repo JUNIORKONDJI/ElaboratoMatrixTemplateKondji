@@ -1,0 +1,4 @@
+If you want to use this program, you need to :
+- download googletest-master.zip ( follow this link : https://github.com/google/googletest )
+- extract all files (only folder "googletest" is required)
+- put "googletest" folder in MatrixTemplate/test/lib/
