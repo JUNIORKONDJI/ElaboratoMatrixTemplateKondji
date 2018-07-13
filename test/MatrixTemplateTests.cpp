@@ -46,17 +46,22 @@ TEST(MatrixTemplate, OperatoreSommaUguale) {
     MatA.setValue(3, 2, 9);
     MatA.setValue(3, 3, 3);
     MatrixTemplate<long int> MatB(3, 3);
+    MatrixTemplate<long int> MatC(3, 3);
     MatB.setValue(1, 2, 3);
     MatB.setValue(2, 2, 4);
     MatB.setValue(2, 3, 1);
     MatB.setValue(3, 1, 5);
+    MatC.setValue(1, 2, 3);
+    MatC.setValue(2, 2, 4);
+    MatC.setValue(2, 3, 1);
+    MatC.setValue(3, 1, 5);
 
-    MatA+= MatB;
+    MatA+= MatB+ MatC;
 
-    ASSERT_EQ(10,MatA.getValue(1, 2));
-    ASSERT_EQ(6,MatA.getValue(2, 2));
-    ASSERT_EQ(2,MatA.getValue(2, 3));
-    ASSERT_EQ(10,MatA.getValue(3, 1));
+    ASSERT_EQ(13,MatA.getValue(1, 2));
+    ASSERT_EQ(10,MatA.getValue(2, 2));
+    ASSERT_EQ(3,MatA.getValue(2, 3));
+    ASSERT_EQ(15,MatA.getValue(3, 1));
     ASSERT_ANY_THROW(MatA.setValue(1, 4, 2));
 
 }
@@ -75,20 +80,26 @@ TEST(MatrixTemplate, OperatoreSomma) {
     MatA.setValue(3, 3, 12);
     MatrixTemplate<int> MatB(3, 4);
     MatrixTemplate<int> MatC(3, 3);
+    MatrixTemplate<int> MatE(3, 3);
     MatC.setValue(1, 1, 3);
     MatC.setValue(2, 1, 4);
     MatC.setValue(3, 1, 1);
     MatC.setValue(3, 2, 5);
     MatC.setValue(3, 3, 4);
+    MatE.setValue(1, 1, 3);
+    MatE.setValue(2, 1, 4);
+    MatE.setValue(3, 1, 1);
+    MatE.setValue(3, 2, 5);
+    MatE.setValue(3, 3, 4);
     MatrixTemplate<int> MatD(1, 1);
 
-    MatD= MatA+ MatC;
+    MatD= MatA+ MatC+ MatE;
 
-    ASSERT_EQ(7, MatD.getValue(1, 1));
-    ASSERT_EQ(12, MatD.getValue(2, 1));
-    ASSERT_EQ(4, MatD.getValue(3, 1));
-    ASSERT_EQ(7, MatD.getValue(3, 2));
-    ASSERT_EQ(16, MatD.getValue(3, 3));
+    ASSERT_EQ(10, MatD.getValue(1, 1));
+    ASSERT_EQ(16, MatD.getValue(2, 1));
+    ASSERT_EQ(5, MatD.getValue(3, 1));
+    ASSERT_EQ(12, MatD.getValue(3, 2));
+    ASSERT_EQ(20, MatD.getValue(3, 3));
     ASSERT_ANY_THROW(MatA+ MatB);
 
 }
@@ -128,18 +139,24 @@ TEST(MatrixTemplate, OperatoreMoltiplicazione) {
     MatrixTemplate<int> B(2, 3);
     ASSERT_THROW(A* B, std::logic_error);
     MatrixTemplate<int> C(3, 2);
+    MatrixTemplate<int> E(2, 2);
     C.setValue(1, 1, 1);
     C.setValue(1, 2, 5);
     C.setValue(2, 1, 6);
     C.setValue(2, 2, 9);
     C.setValue(3, 1, 2);
     C.setValue(3, 2, 8);
+    E.setValue(1, 1, 1);
+    E.setValue(1, 2, 5);
+    E.setValue(2, 1, 6);
+    E.setValue(2, 2, 9);
     MatrixTemplate<int> D(2, 2);
     D= A* C;
-    ASSERT_EQ(D.getValue(1, 1), 30);
-    ASSERT_EQ(D.getValue(1, 2), 77);
-    ASSERT_EQ(D.getValue(2, 1), 48);
-    ASSERT_EQ(D.getValue(2, 2), 91);
+    D = D* E;
+    ASSERT_EQ(D.getValue(1, 1), 492);
+    ASSERT_EQ(D.getValue(1, 2), 843);
+    ASSERT_EQ(D.getValue(2, 1), 594);
+    ASSERT_EQ(D.getValue(2, 2), 1059);
     C= C* 4;
     ASSERT_EQ(C.getValue(1, 1), 4);
     ASSERT_EQ(C.getValue(1, 2), 20);
