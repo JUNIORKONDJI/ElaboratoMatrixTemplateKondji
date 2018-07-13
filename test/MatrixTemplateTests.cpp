@@ -62,7 +62,7 @@ TEST(MatrixTemplate, OperatoreSommaUguale) {
     ASSERT_EQ(10,MatA.getValue(2, 2));
     ASSERT_EQ(3,MatA.getValue(2, 3));
     ASSERT_EQ(15,MatA.getValue(3, 1));
-    ASSERT_ANY_THROW(MatA.setValue(1, 4, 2));
+    ASSERT_THROW(MatA.setValue(1, 4, 2), std::logic_error);
 
 }
 
@@ -100,7 +100,7 @@ TEST(MatrixTemplate, OperatoreSomma) {
     ASSERT_EQ(5, MatD.getValue(3, 1));
     ASSERT_EQ(12, MatD.getValue(3, 2));
     ASSERT_EQ(20, MatD.getValue(3, 3));
-    ASSERT_ANY_THROW(MatA+ MatB);
+    ASSERT_THROW(MatA+ MatB, std::logic_error);
 
 }
 
@@ -181,7 +181,7 @@ TEST(MatrixTemplate, SelezioneRiga) {
     ASSERT_EQ(4, MatB.getValue(1, 1));
     ASSERT_EQ(1, MatB.getValue(1, 2));
     ASSERT_EQ(8, MatB.getValue(1, 3));
-    ASSERT_ANY_THROW(MatA.selectRow(7));
+    ASSERT_THROW(MatA.selectRow(7), std::out_of_range);
 
 }
 
@@ -201,7 +201,7 @@ TEST(MatrixTemplate, SelezioneColonna) {
     ASSERT_EQ(8, MatB.getValue(1, 1));
     ASSERT_EQ(8, MatB.getValue(2, 1));
     ASSERT_EQ(5, MatB.getValue(3, 1));
-    ASSERT_ANY_THROW(MatA.selectColumn(7));
+    ASSERT_THROW(MatA.selectColumn(7), std::out_of_range);
 
 }
 
@@ -217,7 +217,7 @@ TEST(MatrixTemplate, SettareValore) {
     MatA.setValue(3, 1, 2);
     MatA.setValue(3, 2, 9);
     MatA.setValue(3, 3, 2);
-    ASSERT_ANY_THROW(MatA.setValue(3, 5, 9));
+    ASSERT_THROW(MatA.setValue(3, 5, 9), std::out_of_range);
 
 }
 
@@ -235,7 +235,7 @@ TEST(MatrixTemplate, PrendereValore) {
     MatA.setValue(3, 3, 0);
     ASSERT_EQ(6, MatA.getValue(2, 3));
     ASSERT_EQ(0, MatA.getValue(3, 3));
-    ASSERT_ANY_THROW(MatA.getValue(5, 3));
+    ASSERT_THROW(MatA.getValue(5, 3), std::out_of_range);
 
 }
 
