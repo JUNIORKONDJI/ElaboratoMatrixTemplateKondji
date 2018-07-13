@@ -151,8 +151,7 @@ TEST(MatrixTemplate, OperatoreMoltiplicazione) {
     E.setValue(2, 1, 6);
     E.setValue(2, 2, 9);
     MatrixTemplate<int> D(2, 2);
-    D= A* C;
-    D = D* E;
+    D= A* C * E;
     ASSERT_EQ(D.getValue(1, 1), 492);
     ASSERT_EQ(D.getValue(1, 2), 843);
     ASSERT_EQ(D.getValue(2, 1), 594);
