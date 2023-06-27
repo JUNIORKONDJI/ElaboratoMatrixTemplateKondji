@@ -1,5 +1,4 @@
-//
-// Created by corso on 11/07/18.
+//KONDJI NGUIMBOUS JUNIOR 7090449
 //
 
 #include "gtest/gtest.h"
