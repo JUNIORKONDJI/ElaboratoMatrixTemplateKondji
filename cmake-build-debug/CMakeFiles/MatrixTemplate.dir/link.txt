@@ -1,0 +1,3 @@
+"C:\Users\junior Kondji\AppData\Local\JetBrains\CLion 2023.1.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\MatrixTemplate.dir/objects.a
+C:\Users\JUNIOR~1\AppData\Local\JETBRA~1\CLION2~1.3\bin\mingw\bin\ar.exe qc CMakeFiles\MatrixTemplate.dir/objects.a @CMakeFiles\MatrixTemplate.dir\objects1
+C:\Users\JUNIOR~1\AppData\Local\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\MatrixTemplate.dir/objects.a -Wl,--no-whole-archive -o MatrixTemplate.exe -Wl,--out-implib,libMatrixTemplate.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\MatrixTemplate.dir\linkLibs.rsp

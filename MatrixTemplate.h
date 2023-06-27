@@ -1,5 +1,5 @@
 //
-// Created by corso on 10/07/18.
+// KONDJI NGUIMBOUS JUNIOR 7090449.
 //
 
 #ifndef MATRIXTEMPLATE_MATRIXTEMPLATE_H

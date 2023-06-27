@@ -1,0 +1,2 @@
+C:\Users\JUNIOR~1\AppData\Local\JETBRA~1\CLION2~1.3\bin\mingw\bin\ar.exe qc libgtestd.a "CMakeFiles/gtest.dir/src/gtest-all.cc.obj"
+C:\Users\JUNIOR~1\AppData\Local\JETBRA~1\CLION2~1.3\bin\mingw\bin\ranlib.exe libgtestd.a
