@@ -7,28 +7,29 @@
 
 TEST(MatrixTemplate, CostruttoreDefault) {
 
-    MatrixTemplate<double> MatA(2, 3);
-    ASSERT_EQ(2, MatA.getRow());
-    ASSERT_EQ(3, MatA.getColumn());
-    ASSERT_EQ(0, MatA.getValue(2, 1));
-    MatrixTemplate<double> MatB(1, 6);
-    ASSERT_EQ(1, MatB.getRow());
+    MatrixTemplate<double> Mat1(2, 3);
+    ASSERT_EQ(2, Mat1.getRow());
+    ASSERT_EQ(3, Mat1.getColumn());
+    ASSERT_EQ(0, Mat1.getValue(2, 1));
+    MatrixTemplate<double> Mat2(1, 6);
+    ASSERT_EQ(1, Mat2.getRow());
 
 }
 
 TEST(MatrixTemplate, CostruttoreCopia) {
 
-    MatrixTemplate <float> MatA(3, 2);
-    MatA.setValue(1, 1, 4.5);
-    MatA.setValue(1, 2, 9.1);
-    MatA.setValue(2, 1, 4);
-    MatA.setValue(2, 2, 7.8);
-    MatA.setValue(3, 1, 1.6);
-    MatA.setValue(3, 2, 8.2);
-    MatrixTemplate<float> MatB(MatA);
-    ASSERT_TRUE(MatA== MatB);
-    MatB.setValue(1, 1, 7.1);
-    ASSERT_FALSE(MatA== MatB);
+    MatrixTemplate <float> Mat1(3, 2);
+    Mat1.setValue(1, 1, 4.5);
+    Mat1.setValue(1, 2, 9.1);
+    Mat1.setValue(2, 1, 4);
+    Mat1.setValue(2, 2, 7.8);
+    Mat1.setValue(3, 1, 1.6);
+    Mat1.setValue(3, 2, 8.2);
+    MatrixTemplate<float> Mat2(Mat1);
+    ASSERT_TRUE(Mat1== Mat2);
+    Mat2.setValue(1, 1, 7.1);
+
+    ASSERT_FALSE(Mat1== Mat2);
 
 }
 

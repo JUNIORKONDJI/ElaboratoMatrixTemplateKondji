@@ -24,7 +24,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07623912-f573-49f4-bb98-64c89ed3e686" name="Changes" comment="aggiungi file su github&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;" />
+    <list default="true" id="07623912-f573-49f4-bb98-64c89ed3e686" name="Changes" comment="aggiungi file su github&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/runMatrixTemplatesTests.dir/MatrixTemplateTests.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/runMatrixTemplatesTests.dir/MatrixTemplateTests.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/runMatrixTemplatesTests.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/runMatrixTemplatesTests.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/runMatrixTemplatesTests.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/runMatrixTemplatesTests.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/MatrixTemplateTests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/MatrixTemplateTests.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +83,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
     "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   },
@@ -170,7 +177,10 @@
       <workItem from="1687806201427" duration="2830000" />
       <workItem from="1687810262176" duration="10972000" />
       <workItem from="1687862322110" duration="1000" />
-      <workItem from="1687869983807" duration="2875000" />
+      <workItem from="1687869983807" duration="9766000" />
+      <workItem from="1687894607234" duration="580000" />
+      <workItem from="1687895265249" duration="1444000" />
+      <workItem from="1687937595142" duration="9519000" />
     </task>
     <task id="LOCAL-00001" summary="aggiungi file su github">
       <created>1687855308378</created>
@@ -262,6 +272,32 @@
     <isAutomaticFoundErrors value="true" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="github/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -272,7 +308,14 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="github/master" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
                       </list>
                     </value>
                   </entry>
