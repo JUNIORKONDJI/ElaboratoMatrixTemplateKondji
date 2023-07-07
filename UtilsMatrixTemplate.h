@@ -5,20 +5,19 @@
 #define MATRIXTEMPLATE_UTILSMATRIXTEMPLATE_H
 
 #include <cmath>
-#include <cfloat>
+#include <limits>
 
 
 template<typename T>
 bool isEqual(const T&left, const T&right) {
-
     return left==right;
 
 }
 
 template<>
 bool isEqual<float>(const float&left,const float&right) {
-
-    return fabsf(left - right) <= FLT_EPSILON;
+    float epsilon = std::numeric_limits<float>::epsilon();
+    return std::fabs(left - right) <= epsilon;
 
 }
 

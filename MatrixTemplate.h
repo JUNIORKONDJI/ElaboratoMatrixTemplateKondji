@@ -14,16 +14,22 @@
 template<typename T>
 class MatrixTemplate {
 public:
-    MatrixTemplate(int r, int c) : rows(r), columns(c) {
+    MatrixTemplate(int lenVect, bool normalVect) {
 
-        if (r<1)
-            rows=1;
-        if (c<1)
-            columns=1;
+        if (lenVect < 1)
+            lenVect = 1;
+        if (normalVect){
+            //vettore colonna
+            rows = lenVect;
+            columns = 1;
+        }else{
+            rows = 1;
+            columns= lenVect;
+        }
         buffer = new T[rows * columns];
-        for(int i=0;i<rows*columns;i++)
-            buffer[i]=0;
-
+        for(int i = 0; i < rows*columns;++i) {
+            buffer[i] = 0;
+        }
     }
 
     ~MatrixTemplate() {
@@ -37,8 +43,9 @@ public:
         rows = rh.rows;
         columns = rh.columns;
         buffer = new T[rows * columns];
-        for (int i = 0; i < rows * columns; i++)
-            buffer[i] = rh.buffer[i];
+        /*for (int i = 0; i < rows * columns; i++)
+            buffer[i] = rh.buffer[i];*/
+        memcpy(buffer,rh.buffer,rows*columns*sizeof (buffer[0]));
 
     }
 
@@ -50,11 +57,15 @@ public:
         columns = rh.columns;
         delete[]buffer;
         buffer = new T[rows * columns];
-        for (int i = 0; i < rows * columns; i++)
-            buffer[i] = rh.buffer[i];
+        /*for (int i = 0; i < rows * columns; i++)
+            buffer[i] = rh.buffer[i];*/
+
+        mempcpy(buffer,rh.buffer,rows*columns*sizeof (buffer[0]));
         return *this;
 
     }
+
+
 
 
     MatrixTemplate &operator+=(const MatrixTemplate &rh) {
