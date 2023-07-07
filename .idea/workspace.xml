@@ -26,6 +26,7 @@
   <component name="ChangeListManager">
     <list default="true" id="07623912-f573-49f4-bb98-64c89ed3e686" name="Changes" comment="aggiungi file su github&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MatrixTemplate.h" beforeDir="false" afterPath="$PROJECT_DIR$/MatrixTemplate.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +52,7 @@
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/MatrixTemplate.cpp" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/MatrixTemplate.h" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/MatrixTemplate.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -280,7 +280,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688729779190</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="aggiungi file su github&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;">
+      <created>1688731462082</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1688731462082</updated>
+    </task>
+    <task id="LOCAL-00016" summary="aggiungi file su github&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;">
+      <created>1688752742299</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1688752742299</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

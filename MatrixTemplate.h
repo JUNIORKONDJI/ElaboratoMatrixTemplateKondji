@@ -1,6 +1,5 @@
 //
 // KONDJI NGUIMBOUS JUNIOR 7090449.
-//
 #ifndef MATRIXTEMPLATE_MATRIXTEMPLATE_H
 #define MATRIXTEMPLATE_MATRIXTEMPLATE_H
 
@@ -14,7 +13,6 @@ template<typename T>
 class MatrixTemplate {
 public:
     MatrixTemplate(int lenVect, bool normalVect) {
-
         if (lenVect < 1)
             lenVect = 1;
         if (normalVect){
@@ -125,7 +123,7 @@ public:
         return tmp;
     }
 
-    void print() {
+    void print() const {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 std::cout << buffer[columns * i + j] << " ";
@@ -175,7 +173,7 @@ public:
 
 private:
     int rows, columns;
-    T* buffer;
+    const T* buffer;  // Aggiunta della parola chiave 'const' per rendere il vettore di matrici costante
 };
 
 #endif //MATRIXTEMPLATE_MATRIXTEMPLATE_H
