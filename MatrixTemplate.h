@@ -1,7 +1,6 @@
 //
 // KONDJI NGUIMBOUS JUNIOR 7090449.
 //
-
 #ifndef MATRIXTEMPLATE_MATRIXTEMPLATE_H
 #define MATRIXTEMPLATE_MATRIXTEMPLATE_H
 
@@ -32,70 +31,61 @@ public:
         }
     }
 
-    ~MatrixTemplate() {
-
-        delete[] buffer;
-
+    MatrixTemplate(int numRows, int numCols) {
+        if (numRows < 1)
+            numRows = 1;
+        if (numCols < 1)
+            numCols = 1;
+        rows = numRows;
+        columns = numCols;
+        buffer = new T[rows * columns];
+        for (int i = 0; i < rows * columns; ++i) {
+            buffer[i] = 0;
+        }
     }
 
-    MatrixTemplate(const MatrixTemplate &rh) {
+    ~MatrixTemplate() {
+        delete[] buffer;
+    }
 
+    MatrixTemplate(const MatrixTemplate& rh) {
         rows = rh.rows;
         columns = rh.columns;
         buffer = new T[rows * columns];
-        /*for (int i = 0; i < rows * columns; i++)
-            buffer[i] = rh.buffer[i];*/
-        memcpy(buffer,rh.buffer,rows*columns*sizeof (buffer[0]));
-
+        memcpy(buffer, rh.buffer, rows * columns * sizeof(buffer[0]));
     }
 
-    MatrixTemplate &operator=(const MatrixTemplate &rh) {
-
+    MatrixTemplate& operator=(const MatrixTemplate& rh) {
         if (&rh == this)
             return *this;
         rows = rh.rows;
         columns = rh.columns;
-        delete[]buffer;
+        delete[] buffer;
         buffer = new T[rows * columns];
-        /*for (int i = 0; i < rows * columns; i++)
-            buffer[i] = rh.buffer[i];*/
-
-        mempcpy(buffer,rh.buffer,rows*columns*sizeof (buffer[0]));
+        memcpy(buffer, rh.buffer, rows * columns * sizeof(buffer[0]));
         return *this;
-
     }
 
-
-
-
-    MatrixTemplate &operator+=(const MatrixTemplate &rh) {
-
-        if (rows!=rh.rows || columns!=rh.columns)
-            throw std::logic_error(
-                    "Nella somma, le righe e le colonne degli addendi devono avere la stessa dimensione");
+    MatrixTemplate& operator+=(const MatrixTemplate& rh) {
+        if (rows != rh.rows || columns != rh.columns)
+            throw std::logic_error("Nella somma, le righe e le colonne degli addendi devono avere la stessa dimensione");
         for (int i = 0; i < rows * columns; i++)
             buffer[i] = buffer[i] + rh.buffer[i];
         return *this;
-
     }
 
-    MatrixTemplate operator+(const MatrixTemplate &rh) const {
-
+    MatrixTemplate operator+(const MatrixTemplate& rh) const {
         if (rows != rh.rows || columns != rh.columns)
-            throw std::logic_error(
-                    "Nella somma, le righe e le colonne degli addendi devono avere la stessa dimensione");
+            throw std::logic_error("Nella somma, le righe e le colonne degli addendi devono avere la stessa dimensione");
         MatrixTemplate<T> tmp(rows, columns);
         for (int i = 0; i < rh.rows * rh.columns; i++)
             tmp.buffer[i] = buffer[i] + rh.buffer[i];
         return tmp;
-
     }
 
-    MatrixTemplate operator*(const MatrixTemplate &rh) const {
-
+    MatrixTemplate operator*(const MatrixTemplate& rh) const {
         if (columns != rh.rows)
-            throw std::logic_error(
-                    "Nel prodotto, le colonne del primo e le righe del secondo fattore devono avere stessa dimensione");
+            throw std::logic_error("Nel prodotto, le colonne del primo e le righe del secondo fattore devono avere stessa dimensione");
         MatrixTemplate<T> tmp(rows, rh.columns);
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < rh.columns; j++) {
@@ -104,118 +94,88 @@ public:
                     tmp.buffer[i * rh.columns + j] += buffer[i * columns + h] * rh.buffer[h * rh.columns + j];
             }
         return tmp;
-
     }
 
     MatrixTemplate operator*(const T& rh) const {
-
-        MatrixTemplate<T> retMatrix(rows,columns);
-        for(int i=0; i<rows*columns;i++)
-            retMatrix.buffer[i]=rh*buffer[i];
+        MatrixTemplate<T> retMatrix(rows, columns);
+        for (int i = 0; i < rows * columns; i++)
+            retMatrix.buffer[i] = rh * buffer[i];
         return retMatrix;
-
     }
 
-
-    bool operator==(const MatrixTemplate &rh) const {
-
+    bool operator==(const MatrixTemplate& rh) const {
         if (rows != rh.rows || columns != rh.columns)
             return false;
         for (int i = 0; i < rows * columns; i++) {
-            if (!isEqual(buffer[i],rh.buffer[i]))
+            if (!isEqual(buffer[i], rh.buffer[i]))
                 return false;
         }
         return true;
-
     }
 
-    bool operator!=(const MatrixTemplate& rh)const {
-
-        return !(*this==rh);
-
+    bool operator!=(const MatrixTemplate& rh) const {
+        return !(*this == rh);
     }
-
 
     MatrixTemplate transpose() const {
-
         MatrixTemplate<T> tmp(columns, rows);
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < columns; j++)
                 tmp.buffer[tmp.columns * j + i] = buffer[columns * i + j];
         return tmp;
-
     }
 
-
     void print() {
-
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                std::cout << buffer[columns * (i) + j] << " ";
+                std::cout << buffer[columns * i + j] << " ";
             }
             std::cout << std::endl;
         }
         std::cout << std::endl;
-
     }
 
     T getValue(int i, int j) const {
-
-        if (i > rows|| i<1 || j<1  || j > columns)
+        if (i > rows || i < 1 || j < 1 || j > columns)
             throw std::out_of_range("Elemento non presente nella matrice");
         return buffer[columns * (i - 1) + j - 1];
-
     }
 
-    void setValue(int i, int j, const T &value) const {
-
+    void setValue(int i, int j, const T& value) {
         if (i > rows || j > columns)
             throw std::out_of_range("Elemento non presente nella matrice");
         buffer[columns * (i - 1) + j - 1] = value;
-
     }
 
-    MatrixTemplate selectRow(int i) {
-
-        if (i > rows || i<1)
+    MatrixTemplate selectRow(int i) const {
+        if (i > rows || i < 1)
             throw std::out_of_range("Riga non presente nella matrice");
         MatrixTemplate<T> tmp(1, columns);
         for (int j = 0; j < columns; j++)
             tmp.buffer[j] = buffer[columns * (i - 1) + j];
         return tmp;
-
     }
 
-    MatrixTemplate selectColumn(int j) {
-
-        if (j > rows || j<1)
+    MatrixTemplate selectColumn(int j) const {
+        if (j > rows || j < 1)
             throw std::out_of_range("Colonna non presente nella matrice");
         MatrixTemplate<T> tmp(rows, 1);
         for (int i = 0; i < rows; i++)
             tmp.buffer[i] = buffer[j - 1 + columns * i];
         return tmp;
-
     }
 
-    int getRow() const{
-
+    int getRows() const {
         return rows;
-
     }
 
-    int getColumn() const{
-
+    int getColumns() const {
         return columns;
-
     }
-
 
 private:
-
     int rows, columns;
-    T *buffer;
-
+    T* buffer;
 };
-
 
 #endif //MATRIXTEMPLATE_MATRIXTEMPLATE_H

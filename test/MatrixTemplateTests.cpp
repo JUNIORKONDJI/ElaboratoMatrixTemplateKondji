@@ -8,11 +8,11 @@
 TEST(MatrixTemplate, CostruttoreDefault) {
 
     MatrixTemplate<double> MatA(2, 3);
-    ASSERT_EQ(2, MatA.getRow());
-    ASSERT_EQ(3, MatA.getColumn());
+    ASSERT_EQ(2, MatA.getRows());
+    ASSERT_EQ(3, MatA.getColumns());
     ASSERT_EQ(0, MatA.getValue(2, 1));
     MatrixTemplate<double> MatB(1, 6);
-    ASSERT_EQ(1, MatB.getRow());
+    ASSERT_EQ(1, MatB.getRows());
 
 }
 
@@ -247,10 +247,35 @@ TEST(MatrixTemplate,Transpose) {
     MatA.setValue(2, 2, 5);
     MatA.setValue(2, 3, 3);
     MatrixTemplate<double> MatB(MatA.transpose());
-    ASSERT_EQ(3, MatB.getRow());
-    ASSERT_EQ(2, MatB.getColumn());
+    ASSERT_EQ(3, MatB.getRows());
+    ASSERT_EQ(2, MatB.getColumns());
     ASSERT_EQ(3, MatB.getValue(3, 2));
     ASSERT_EQ(0, MatB.getValue(2, 1));
     ASSERT_EQ(5, MatB.getValue(2, 2));
 
+}
+TEST(MatrixTemplate, ProdottoMatrici) {
+
+    MatrixTemplate<int> A(2, 3);
+    A.setValue(1, 1, 2);
+    A.setValue(1, 2, 3);
+    A.setValue(1, 3, 5);
+    A.setValue(2, 1, 4);
+    A.setValue(2, 2, 7);
+    A.setValue(2, 3, 1);
+
+    MatrixTemplate<int> B(3, 2);
+    B.setValue(1, 1, 1);
+    B.setValue(1, 2, 5);
+    B.setValue(2, 1, 6);
+    B.setValue(2, 2, 9);
+    B.setValue(3, 1, 2);
+    B.setValue(3, 2, 8);
+
+    MatrixTemplate<int> result = A * B;
+
+    ASSERT_EQ(30, result.getValue(1, 1));
+    ASSERT_EQ(59, result.getValue(1, 2));
+    ASSERT_EQ(47, result.getValue(2, 1));
+    ASSERT_EQ(83, result.getValue(2, 2));
 }
