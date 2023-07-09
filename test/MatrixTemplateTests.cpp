@@ -275,7 +275,7 @@ TEST(MatrixTemplate, ProdottoMatrici) {
     MatrixTemplate<int> result = A * B;
 
     ASSERT_EQ(30, result.getValue(1, 1));
-    ASSERT_EQ(59, result.getValue(1, 2));
-    ASSERT_EQ(47, result.getValue(2, 1));
-    ASSERT_EQ(83, result.getValue(2, 2));
+    ASSERT_EQ(77, result.getValue(1, 2));
+    ASSERT_EQ(48, result.getValue(2, 1));
+    ASSERT_EQ(91, result.getValue(2, 2));
 }

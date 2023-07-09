@@ -6,4 +6,4 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 set(TEST_SOURCE_FILES runAllTests.cpp MatrixTemplateTests.cpp)
 add_executable(runMatrixTemplatesTests ${TEST_SOURCE_FILES})
-target_link_libraries(runMatrixTemplatesTests gtest gtest_main core)
+target_link_libraries(runMatrixTemplatesTests gtest gtest_main)

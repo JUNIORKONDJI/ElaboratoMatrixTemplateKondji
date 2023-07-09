@@ -7,7 +7,7 @@
 #include <stdexcept>
 #include <cmath>
 #include <cfloat>
-#include "UtilsMatrixTemplate.h"
+#include <cstring>
 
 template<typename T>
 class MatrixTemplate {
@@ -50,7 +50,7 @@ public:
         rows = rh.rows;
         columns = rh.columns;
         buffer = new T[rows * columns];
-        memcpy(buffer, rh.buffer, rows * columns * sizeof(buffer[0]));
+        std::memcpy(buffer, rh.buffer, rows * columns * sizeof(buffer[0]));
     }
 
     MatrixTemplate& operator=(const MatrixTemplate& rh) {
@@ -60,7 +60,7 @@ public:
         columns = rh.columns;
         delete[] buffer;
         buffer = new T[rows * columns];
-        memcpy(buffer, rh.buffer, rows * columns * sizeof(buffer[0]));
+        std::memcpy(buffer, rh.buffer, rows * columns * sizeof(buffer[0]));
         return *this;
     }
 
@@ -68,7 +68,7 @@ public:
         if (rows != rh.rows || columns != rh.columns)
             throw std::logic_error("Nella somma, le righe e le colonne degli addendi devono avere la stessa dimensione");
         for (int i = 0; i < rows * columns; i++)
-            buffer[i] = buffer[i] + rh.buffer[i];
+            buffer[i] += rh.buffer[i];
         return *this;
     }
 
@@ -105,7 +105,7 @@ public:
         if (rows != rh.rows || columns != rh.columns)
             return false;
         for (int i = 0; i < rows * columns; i++) {
-            if (!isEqual(buffer[i], rh.buffer[i]))
+            if (buffer[i] != rh.buffer[i])
                 return false;
         }
         return true;
@@ -155,11 +155,11 @@ public:
     }
 
     MatrixTemplate selectColumn(int j) const {
-        if (j > rows || j < 1)
+        if (j > columns || j < 1)
             throw std::out_of_range("Colonna non presente nella matrice");
         MatrixTemplate<T> tmp(rows, 1);
         for (int i = 0; i < rows; i++)
-            tmp.buffer[i] = buffer[j - 1 + columns * i];
+            tmp.buffer[i] = buffer[columns * i + (j - 1)];
         return tmp;
     }
 
@@ -173,7 +173,7 @@ public:
 
 private:
     int rows, columns;
-    const T* buffer;  // Aggiunta della parola chiave 'const' per rendere il vettore di matrici costante
+    T* buffer;
 };
 
 #endif //MATRIXTEMPLATE_MATRIXTEMPLATE_H
