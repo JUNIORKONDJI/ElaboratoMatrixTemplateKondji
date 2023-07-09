@@ -24,9 +24,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07623912-f573-49f4-bb98-64c89ed3e686" name="Changes" comment="aggiungi file su github&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="07623912-f573-49f4-bb98-64c89ed3e686" name="Changes" comment="aggiunto vettore per matrici&#10;test prodotto matrici per matrici&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;">
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MatrixTemplate.h" beforeDir="false" afterPath="$PROJECT_DIR$/MatrixTemplate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/MatrixTemplateTests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/MatrixTemplateTests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688752742299</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="aggiunto vettore per matrici&#10;test prodotto matrici per matrici&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;">
+      <created>1688753592464</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1688753592464</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +381,8 @@
     <MESSAGE value="aggiungi file su github" />
     <MESSAGE value="Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;" />
     <MESSAGE value="aggiungi file su github&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiungi file su github&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;" />
+    <MESSAGE value="aggiunto vettore per matrici&#10;test prodotto matrici per matrici&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiunto vettore per matrici&#10;test prodotto matrici per matrici&#10;&#10;Signed-off-by: JUNIORKONDJI &lt;junior.kondji@stud.unifi.it&gt;" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
