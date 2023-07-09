@@ -54,15 +54,16 @@ public:
     }
 
     MatrixTemplate& operator=(const MatrixTemplate& rh) {
-        if (&rh == this)
-            return *this;
-        rows = rh.rows;
-        columns = rh.columns;
-        delete[] buffer;
-        buffer = new T[rows * columns];
-        std::memcpy(buffer, rh.buffer, rows * columns * sizeof(buffer[0]));
+        if (&rh != this) {
+            rows = rh.rows;
+            columns = rh.columns;
+            delete[] buffer;
+            buffer = new T[rows * columns];
+            std::memcpy(buffer, rh.buffer, rows * columns * sizeof(buffer[0]));
+        }
         return *this;
     }
+
 
     MatrixTemplate& operator+=(const MatrixTemplate& rh) {
         if (rows != rh.rows || columns != rh.columns)
